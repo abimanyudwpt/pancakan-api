@@ -16,7 +16,9 @@ class AbsensiController extends Controller
 {
     public function dataAbsen()
     {
-        $absen = Presensi::all();
+        // $absen = Presensi::paginate(10);
+        $absen = Presensi::with('dataKrama')->paginate(10);
+        // $absen = Presensi::getKrama();
         return response()->json($absen);
     }
 
